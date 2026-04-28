@@ -36,7 +36,7 @@ jobs:
   depoy: 
     runs-on: ubuntu-latest 
     needs: build           # 等 test job 成功后才跑
-    permissons:
+    permissions:
       contents: write      # 🔑 关键：允许推送代码
     steps:
       - name: 下载构建产物
