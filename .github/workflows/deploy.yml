@@ -1,11 +1,9 @@
-name: 部署我的第一个页面
+name: deploy
 
 on:
- push:
-  branchs:
-    - main
-
-
+  push:
+    branchs:
+      - main
 
 jobs:
   build:
@@ -20,7 +18,7 @@ jobs:
           cache: true
       - name: 安装Node.js
         uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: 20
           cache: 'pnpm'
       - name: 安装依赖
@@ -33,17 +31,18 @@ jobs:
           name: dist-files
           path: ./dist
 
-  depoy: 
-    runs-on: ubuntu-latest 
-    needs: build           # 等 test job 成功后才跑
+  depoy:
+    runs-on: ubuntu-latest
+    needs: build # 等 test job 成功后才跑
     permissions:
-      contents: write      # 🔑 关键：允许推送代码
+      contents: write # 🔑 关键：允许推送代码
     steps:
       - name: 下载构建产物
         uses: actions/download-artifact@v4
         with:
           name: dist-files
-          path: ./dist
+          path:
+            ./dist
 
             # 2. 部署到 GitHub Pages（免费静态托管）
       - name: 部署到 GitHub Pages
