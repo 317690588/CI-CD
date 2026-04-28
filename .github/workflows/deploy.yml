@@ -13,17 +13,16 @@ jobs:
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
-
-      - name: 安装Node.js
-        uses: actions/setup-node@v4
-        with: 
-          node-version: 20
-          cache: 'pnpm'
       - name: 安装pnpm
         uses: pnpm/action-setup@v6
         with:
           version: 10
           cache: true
+      - name: 安装Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+          cache: 'pnpm'
       - name: 安装依赖
         run: pnpm install
       - name: 构建产物
