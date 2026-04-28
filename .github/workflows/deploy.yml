@@ -2,9 +2,9 @@ name: deploy
 
 on:
   workflow_run:
-    workflows: ["lint"]        # 监听 Lint workflow
+    workflows: ['lint'] # 监听 Lint workflow
     types:
-      - completed              # 等它完成后
+      - completed # 等它完成后
     branches:
       - main
 

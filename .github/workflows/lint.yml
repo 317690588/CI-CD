@@ -3,7 +3,7 @@ name: lint
 on:
   push:
     branchs:
-      - main 
+      - main
 
 jobs:
   eslint:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      - name: 安装依赖 
+      - name: 安装依赖
         run: pnpm install
       - name: eslint校验代码
         run: pnpm run lint
