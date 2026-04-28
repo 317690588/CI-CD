@@ -2,8 +2,11 @@ name: lint
 
 on:
   push:
-    branchs:
-      - main
+    branches:
+      - main # 只有 push 到 main 分支才触发
+  pull_request:
+    branches:
+      - main # 只有 PR 目标为 main 分支才触发
 
 jobs:
   eslint:
