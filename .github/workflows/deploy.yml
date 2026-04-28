@@ -1,8 +1,11 @@
 name: deploy
 
 on:
-  push:
-    branchs:
+  workflow_run:
+    workflows: ["lint"]        # 监听 Lint workflow
+    types:
+      - completed              # 等它完成后
+    branches:
       - main
 
 jobs:
